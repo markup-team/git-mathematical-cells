@@ -1,0 +1,108 @@
+// ========================================================================
+// [sequence] | 공통 시퀀스
+// ========================================================================
+.share-cone-sequence{
+  position: relative;
+  display: inline-block;
+}
+//------------------------------------------------------------------------
+.share-cone-sequence{
+    margin-top: -40px;
+  .cone-icon{
+    position: relative;
+  }
+  .i-cone{
+    position: relative;
+    display: block;
+    width: 450px;
+    height: 410px;
+    background-image: url('#{$imgsharePath}/i-cone@2x.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+  .i-bg{
+    @include top-left(3px, 0);
+    display: block;
+    width: 450px;
+    height: 410px;
+    background-image: url('#{$imgsharePath}/i-bg@2x.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    opacity: 0;
+  }
+  .i-light{
+    @include top-left(6px, 0);
+    display: block;
+    width: 450px;
+    height: 410px;
+    background-image: url('#{$imgsharePath}/i-light@2x.png');
+    background-size: 450px 810px;
+    background-repeat: no-repeat;
+  }
+  .is-motions{
+    &.i-bg{
+      animation-name: cone-animation;
+      // animation-delay: 1s;
+      animation-duration: 0.5s;
+      animation-iteration-count: 1;
+      animation-timing-function: ease-in;
+      animation-fill-mode: forwards;
+    }
+  }
+  .is-motions{
+    &.i-light{
+      animation-name: light-animation;
+      animation-delay: 0.5s;
+      animation-duration: 0.4s;
+      animation-iteration-count: infinite;
+      animation-timing-function: step-start;
+    }
+  }
+}
+@keyframes cone-animation{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+@keyframes light-animation{
+  0%{
+    background-position: 0 0;
+  }
+  50%{
+    background-position: 0 0;
+  }
+  100%{
+    background-position: 0 -410px;
+  }
+}
+//------------------------------------------------------------------------
+.share-cone-sequence{
+  .cone-txt-btn{
+    margin-top: -14px;
+    .c-txt, .c-btn{ display: block;}
+    .c-txt{
+      font-size: 42px;
+      font-weight: 600;
+      color: #ffffff;
+      vertical-align: middle;
+      em{
+        margin-right: 5px;
+        font-size: 50px;
+        font-weight: 800;
+        color: #ffe827;
+      }
+    }
+    .c-btn{
+      margin-top: 30px;
+    }
+    .btn-confirm{
+      @include bg-img-size(185px, 50px, $imgsharePath, 'btn-confirm@2x');
+      @extend %ir;
+    }
+  }
+}
+
+//------------------------------------------------------------------------

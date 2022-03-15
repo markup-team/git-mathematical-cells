@@ -1,0 +1,123 @@
+// ========================================================================
+// [common] | 공통
+// ========================================================================
+.mathematical-cells{
+  position: relative;
+  width: 1280px;
+  height: $height;
+  background-color: #fff;
+  .ico{
+    display: inline-block;
+    @extend %ir;
+    // 이모티콘-굿
+    &.i-emoji-good{
+      @include bg-img-size(50px, 50px, $imgCommonPath, 'i-emoji-good-default@2x');
+    }
+    // 이모티콘-화이팅
+    &.i-emoji-cheering{
+      @include bg-img-size(50px, 50px, $imgCommonPath, 'i-emoji-cheering-default@2x');
+    }
+
+  }
+  // 비활성화
+  .emoji-box[disabled]{
+    .ico{
+      // 이모티콘-굿
+      &.i-emoji-good{
+        @include bg-img-size(50px, 50px, $imgCommonPath, 'i-emoji-good-disabled@2x');
+      }
+      // 이모티콘-화이팅
+      &.i-emoji-cheering{
+        @include bg-img-size(50px, 50px, $imgCommonPath, 'i-emoji-cheering-disabled@2x');
+      }
+    }
+  }
+  .cells{
+    &.cells-type-1{
+      @include bg-img-size(149px, 142px, $imgCommonPath, 'i-cell-1depth@2x');
+    }
+    &.cells-type-2{
+      @include bg-img-size(100px, 100px, $imgCommonPath, 'i-cell-2depth@2x');
+    }
+  }
+
+  //---------------------------------------------------------------------------------
+  // 닫기버튼
+  .top-close,
+  .top-close-area{
+    @include top-right(22px, 21px);
+    line-height: 1;
+  }
+  // 풀이현황/학습하기
+  .study-make,
+  .skin-floating-pop{
+    .top-close,
+    .top-close-area{
+      top: 15px;
+    }
+  }
+  // 팝업
+  .skin-pop{
+    .top-close,
+    .top-close-area{
+      top: 15px;
+      right: 13px;
+    }
+  }
+  .btn-close{
+    .ico{
+      &.i-top-close-1{
+        @include bg-img-size(28px, 28px, $imgCommonPath, 'i-top-close-1@2x');
+      }
+      &.i-top-close-2{
+        @include bg-img-size(28px, 28px, $imgCommonPath, 'i-top-close-2@2x');
+      }
+    }
+  }
+  //---------------------------------------------------------------------------------
+  // 팝업 - 공지 텍스트
+  .common-info{
+    .txt{
+      position: relative;
+      padding-left: 22px;
+      font-size: 17px;
+      color: #888;
+      letter-spacing: -1.27px;
+      &::before{
+        @include top-left(50%, 0);
+        @include bg-img-size(17px, 17px, $imgCommonPath, 'pop-i-notice@2x');
+        margin-top: -8px;
+        content: ''
+      }
+    }
+  }
+  // 팝업 - 하단 버튼
+  .btn-bottom-area{
+    position: relative;
+    display: block;
+    margin-top: 20px;
+    font-size: 0;
+    text-align: center;
+    .challenge-info{
+      margin-bottom: 20px;
+    }
+    .btn-challenge{
+      display: inline-block;
+      height: 45px;
+      line-height: 1;
+      padding: 0 42px;
+      margin: 0 5px;
+      border-radius: 25px;
+      font-size: 24px;
+      font-weight: $base-bold;
+      color: #ffffff;
+      .txt{
+        vertical-align: top;
+      }
+      &.btn-confirm{
+        background-color: #20cac2;
+      }
+    }
+  }
+  //---------------------------------------------------------------------------------
+}

@@ -1,0 +1,282 @@
+// ========================================================================
+// [popup] | 공통 팝업
+// ========================================================================
+button{ border: 0 none;  outline: 0 none; background-color: transparent}
+.share-pop-ui{
+  display: none;
+  @include top-left(0, 0);
+  width: 100%;
+  height: 100%;
+  .dim{
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.7;
+  }
+  .pos-a{
+    @include top-left(0, 0);
+  }
+  .dp-table{
+    display: table;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .dp-cell{
+    display: table-cell;
+    vertical-align: middle;
+  }
+  &.open{
+    display: block;
+  }
+}
+//---------------------------------------------------------------------
+// 로딩중박스
+.share-loading-box{
+  display: inline-block;
+  width: 400px;
+  height: 100px;
+  line-height: 100px;
+  border-radius: 30px;
+  font-size: 26px;
+  font-weight: 700;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+//---------------------------------------------------------------------
+// 알림박스
+.share-alert-box{
+  display: inline-block;
+  width: 475px;
+  padding: 30px 0;
+  border-radius: 30px;
+  background-color: #ffffff;
+  text-align: center;
+  color: #aaaaaa;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.4em;
+  .share-txt-area{
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  .share-txt{
+    padding: 10px;
+  }
+  .share-btn-area{
+    .button-ok{
+      width: 135px;
+      height: 48px;
+      line-height: 48px;
+      border-radius: 24px;
+      background-color: #13aeca;
+      color: #ffffff;
+    }
+  }
+}
+//---------------------------------------------------------------------
+// 확인박스
+.share-comfirm-box{
+  display: inline-block;
+  width: 475px;
+  padding: 30px 0;
+  border-radius: 30px;
+  background-color: #ffffff;
+  text-align: center;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.4em;
+  .share-txt{
+    padding: 0 30px;
+    color: #454545;
+    .txt-sub{
+      margin-top: 25px;
+      line-height: 1.5em;
+      font-size: 20px;
+      font-weight: $base-normal;
+      color: #3f3f3f;
+      letter-spacing: -0.02em;
+    }
+  }
+  .dp-table{
+    min-height: 165px;
+  }
+
+  .share-btn-area{
+    ul{
+      margin: 20px 0 0 0;
+      font-size: 0;
+    }
+    .share-btn{
+      display: inline-block;
+      margin: 0 6px;
+      vertical-align: top;
+      button{
+        min-width: 140px;
+        height: 50px;
+        line-height: 50px;
+        padding: 0 20px;
+        border-radius: 24px;
+        background-color: #3eafcc;
+        font-size: 24px;
+        font-weight: 600;
+        color: #fff
+      }
+      &.btn-x{
+        button{
+          background-color: #aeaeae;
+        }
+      }
+    }
+  }
+}
+//---------------------------------------------------------------------
+// 슬라이드박스
+.share-slide-box{
+  position: relative;
+  display: inline-block;
+  width: 1210px;
+  height: 680px;
+  min-width: 1160px;
+  background-color: #fff;
+  border-radius: 20px;
+  .slide-box-title-area {
+    margin-top: 25px;
+    font-size: 0;
+    .i-pop-info {
+      margin-right: 10px;
+    }
+    .slide-box-title {
+      color: #000;
+      font-size: 30px;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.05em;
+    }
+  }
+  .btn-close-area {
+    @include top-right(8px, 9px);
+    .btn-close {
+      padding: 6px 2px 4px 4px;
+    }
+  }
+  .pop-slide {
+    position: relative;
+    margin: 25px 42px 0 42px;
+    .slide-area {
+      position: relative;
+      width: 1126px;
+      height: 544px;
+      background-color: #ebebeb;
+      border-radius: 25px;
+      // 수학의 세포들
+      &.slide-math-cells{
+        background-color: #f2f2fe;
+      }
+      .slide-list {
+        display: none;
+        &.active {
+          display: block;
+        }
+      }
+    }
+    .btn-area {
+      @include top-left(50%, 0);
+      width: 100%;
+      margin-top: -25px;
+      button {
+        background-color: transparent;
+      }
+      .btn-slide-prev {
+        button {
+          padding: 8px 4px 8px 12px;
+          box-sizing: border-box;
+        }
+      }
+      .btn-slide-next {
+        button {
+          padding: 8px 12px 8px 4px;
+          box-sizing: border-box;
+        }
+      }
+      .btn-slide-prev {
+        @include top-left(0, -40px);
+        i {
+          background-position: -1px -0
+        }
+      }
+      .btn-slide-next {
+        @include top-right(0, -40px);
+        i {
+          background-position: -30px 0
+        }
+      }
+    }
+    .pagination-area {
+      // @include bottom-left(0, 0);
+      width: 100%;
+      margin: 0 auto;
+      text-align: center;
+      .paging-slide {
+        display: inline-block;
+        padding-top: 16px;
+        font-size: 0;
+      }
+      .btn-paging {
+        padding: 4px;
+        box-sizing: border-box;
+        .paging {
+          display: inline-block;
+          width: 10px;
+          height: 10px;
+          background-color: #e5e5e5;
+          border-radius: 50%;
+          outline: 0 none;
+          @extend %ir;
+        }
+        &.active {
+          .paging {
+            width: 25px;
+            background-color: #b2b2b2;
+            border-radius: 20px;
+          }
+        }
+      }
+    }
+    // 수학의 세포들 다시보지 않기 체크박스
+    .checkbox-area{
+      @include bottom-right(-6px, -4px);
+      .check-label{
+        cursor: pointer;
+      }
+      .check-txt{
+        color: #000000;
+        font-size: 17px;
+        font-weight: 400;
+      }
+      .check-input{
+        position: relative;
+        width: 30px;
+        height: 30px;
+        border-radius: 5px;
+        border: 2px solid #c1c1c1;
+        background-color: transparent;
+        box-sizing: border-box;
+        &[type="checkbox"]{
+          -webkit-appearance: none;
+        }
+        &[type="checkbox"]:checked{
+          &::before{
+            @include top-left(5px, 4px);
+            @include bg-img-size(20px, 15px, $imgpopPath, 'i-pop-check@2x');
+            content: '';
+          }
+        }
+      }
+    }
+  }
+}
+//---------------------------------------------------------------------

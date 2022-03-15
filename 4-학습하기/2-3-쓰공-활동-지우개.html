@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>수학의 세포들</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<script src="../assets/js/webfont.js" charset="utf-8"></script>
+<!-- js 녹음중 | 프로그레스바 1 -->
+<script src="../assets/js/circle-progress-bar.min.js"></script>
+</head>
+<body>
+<!-- #####mathematical-cells: 수학의 세포들 -->
+<div class="mathematical-cells">
+
+  <!-- ####study-make: 학습하기 -->
+  <!-- js 팝업 | act-on: 생성 -->
+  <div class="study-make act-on">
+
+    <!-- ###스킨 - 상단 -->
+    <!-- 참고: 내공타임 쓰공 상단 소스  -->
+    <header class="skin-top skin-top-tools">
+      <!-- 상단 - 메인 -->
+      <div class="header-main">
+
+        <!-- ##스킨 - 상단 - 타이틀 -->
+        <div class="top-title">
+          <h1 class="title-main">생각세포 만들기</h1>
+        </div>
+        <!-- //##스킨 - 상단 - 타이틀 -->
+
+        <!-- ##스킨 - 상단 - 툴 -->
+        <div class="top-tools">
+          <ul class="tool-list-group">
+            <!-- js 메인 툴 | act-on: 생성 / act-active: 활성화 -->
+            <li class="tool-list tool-list-paper act-on">
+              <button class="btn-paper">
+                <i class="ico i-tools-paper">노트</i>
+              </button>
+            </li>
+            <li class="tool-list tool-list-pencil act-on">
+              <button class="btn-pencil">
+                <i class="ico i-tools-pencil">연필</i>
+              </button>
+            </li>
+            <li class="tool-list tool-list-highlights act-on">
+              <button class="btn-highlights">
+                <i class="ico i-tools-highlights">형광펜</i>
+              </button>
+            </li>
+            <li class="tool-list tool-list-eraser act-on act-active">
+              <button class="btn-eraser">
+                <i class="ico i-tools-eraser">지우개</i>
+              </button>
+            </li>
+          </ul>
+          <ul class="history-list-group">
+            <!-- js | act-on: 생성 / act-active: 활성화 -->
+            <li class="history-list history-list-undo act-on act-active">
+              <button type="button" class="btn-undo">
+                <i class="ico i-tools-undo">이전</i>
+              </button>
+            </li>
+            <li class="history-list history-list-redo act-on">
+              <button type="button" class="btn-redo">
+                <i class="ico i-tools-redo">다음</i>
+              </button>
+            </li>
+          </ul>
+        </div>
+        <!-- //##스킨 - 상단 - 툴 -->
+
+        <!-- ##상단 닫기버튼 -->
+        <div class="top-close">
+          <button type="button" name="button" class="btn-close">
+            <i class="ico i-top-close-2">닫기</i>
+          </button>
+        </div>
+        <!-- //##상단 닫기버튼 -->
+      </div>
+      <!-- 상단 - 서브 -->
+      <div class="header-sub">
+
+        <!-- ##서브 툴 - 페이퍼 -->
+        <!-- js 서브 툴 | act-on: 생성  -->
+        <div class="sub-box sub-paper-box">
+          <ul class="sub-list-group">
+            <!-- js 서브 툴 리스트 | act-on: 생성 / act-active: 활성화 -->
+            <li class="sub-list act-on">
+              <button class="btn-paper-type act-active">
+                <i class="ico i-paper i-paper-empty">배경-디폴트</i>
+              </button>
+            </li>
+            <li class="sub-list act-on">
+              <button class="btn-paper-type">
+                <i class="ico i-paper i-paper-line1">배경-라인-1</i>
+              </button>
+            </li>
+            <li class="sub-list act-on">
+              <button class="btn-paper-type">
+                <i class="ico i-paper i-paper-line2">배경-라인-2</i>
+              </button>
+            </li>
+            <li class="sub-list act-on">
+              <button class="btn-paper-type">
+                <i class="ico i-paper i-paper-line3">배경-라인-3</i>
+              </button>
+            </li>
+            <li class="sub-list act-on">
+              <button class="btn-paper-type">
+                <i class="ico i-paper i-paper-grid1">배경-그리드-1</i>
+              </button>
+            </li>
+            <li class="sub-list act-on">
+              <button class="btn-paper-type">
+                <i class="ico i-paper i-paper-grid2">배경-그리드-2</i>
+              </button>
+            </li>
+            <li class="sub-list act-on">
+              <button class="btn-paper-type">
+                <i class="ico i-paper i-paper-grid3">배경-그리드-3</i>
+              </button>
+            </li>
+          </ul>
+        </div>
+        <!-- //##서브 툴 - 페이퍼 -->
+
+        <!-- ##서브 툴 - 펜슬 -->
+        <!-- js 서브 툴 | act-on: 생성  -->
+        <div class="sub-box sub-pencil-box">
+          <!-- #펜슬 크기 -->
+          <ul class="sub-list-group sub-list-group-size">
+            <!-- js 서브 툴 리스트 | act-on: 생성 / act-active: 활성화 -->
+            <li class="sub-list act-on">
+              <button class="btn-pencil-size">
+                <i class="ico i-pencil-size i-pencil-size-1">크기-스몰</i>
+              </button>
+            </li>
+            <li class="sub-list act-on act-active">
+              <button class="btn-pencil-size">
+                <i class="ico i-pencil-size i-pencil-size-2">크기-미디움</i>
+              </button>
+            </li>
+            <li class="sub-list act-on">
+              <button class="btn-pencil-size">
+                <i class="ico i-pencil-size i-pencil-size-3">크기-라지</i>
+              </button>
+            </li>
+          </ul>
+          <!-- #펜슬 컬러 -->
+          <ul class="sub-list-group sub-list-group-color">
+            <!-- js 서브 툴 리스트 | act-on: 생성 / act-active: 활성화 -->
+            <li class="sub-list act-on act-active">
+              <button class="btn-pencil-color">
+                <i class="ico i-pencil-color i-pencil-color-1">컬러-레드</i>
+              </button>
+            </li>
+            <li class="sub-list act-on">
+              <button class="btn-pencil-color">
+                <i class="ico i-pencil-color i-pencil-color-2">컬러-옐로우</i>
+              </button>
+            </li>
+            <li class="sub-list act-on">
+              <button class="btn-pencil-color">
+                <i class="ico i-pencil-color i-pencil-color-3">컬러-옐로우그린</i>
+              </button>
+            </li>
+            <li class="sub-list act-on">
+              <button class="btn-pencil-color">
+                <i class="ico i-pencil-color i-pencil-color-4">컬러-그린</i>
+              </button>
+            </li>
+            <li class="sub-list act-on">
+              <button class="btn-pencil-color">
+                <i class="ico i-pencil-color i-pencil-color-5">컬러-스카이블루</i>
+              </button>
+            </li>
+            <li class="sub-list act-on">
+              <button class="btn-pencil-color">
+                <i class="ico i-pencil-color i-pencil-color-6">컬러-블루</i>
+              </button>
+            </li>
+            <li class="sub-list act-on">
+              <button class="btn-pencil-color">
+                <i class="ico i-pencil-color i-pencil-color-6">컬러-바이올렛</i>
+              </button>
+            </li>
+            <li class="sub-list act-on">
+              <button class="btn-pencil-color">
+                <i class="ico i-pencil-color i-pencil-color-8">컬러-퍼플</i>
+              </button>
+            </li>
+            <li class="sub-list act-on">
+              <button class="btn-pencil-color">
+                <i class="ico i-pencil-color i-pencil-color-9">컬러-오커</i>
+              </button>
+            </li>
+            <li class="sub-list act-on">
+              <button class="btn-pencil-color">
+                <i class="ico i-pencil-color i-pencil-color-10">컬러-브라운</i>
+              </button>
+            </li>
+            <li class="sub-list act-on">
+              <button class="btn-pencil-color b-grey">
+                <i class="ico i-pencil-color i-pencil-color-11">컬러-화이트</i>
+              </button>
+            </li>
+            <li class="sub-list act-on">
+              <button class="btn-pencil-color">
+                <i class="ico i-pencil-color i-pencil-color-12">컬러-그레이</i>
+              </button>
+            </li>
+            <li class="sub-list act-on">
+              <button class="btn-pencil-color">
+                <i class="ico i-pencil-color i-pencil-color-13">컬러-블랙</i>
+              </button>
+            </li>
+          </ul>
+        </div>
+        <!-- //##서브 툴 - 펜슬 -->
+
+        <!-- ##서브 툴 - 형광펜 -->
+        <!-- js 서브 툴 | act-on: 생성  -->
+        <div class="sub-box sub-highlight-box">
+          <!-- #형광펜 컬러 -->
+          <ul class="sub-list-group sub-list-group-color">
+            <li class="sub-list act-on act-active">
+              <button class="btn-highlight-color">
+                <i class="ico i-highlight-color i-highlight-color-1">컬러-핑트</i>
+              </button>
+            </li>
+            <li class="sub-list act-on">
+              <button class="btn-highlight-color">
+                <i class="ico i-highlight-color i-highlight-color-2">컬러-바이올렛</i>
+              </button>
+            </li>
+            <li class="sub-list act-on">
+              <button class="btn-highlight-color">
+                <i class="ico i-highlight-color i-highlight-color-3">컬러-스카이</i>
+              </button>
+            </li>
+            <li class="sub-list act-on">
+              <button class="btn-highlight-color">
+                <i class="ico i-highlight-color i-highlight-color-4">컬러-그린</i>
+              </button>
+            </li>
+            <li class="sub-list act-on">
+              <button class="btn-highlight-color">
+                <i class="ico i-highlight-color i-highlight-color-5">컬러-옐로우</i>
+              </button>
+            </li>
+            <li class="sub-list act-on">
+              <button class="btn-highlight-color">
+                <i class="ico i-highlight-color i-highlight-color-6">컬러-오렌지</i>
+              </button>
+            </li>
+          </ul>
+        </div>
+        <!-- //##서브 툴 - 형광펜 -->
+
+        <!-- ##서브 툴 - 지우개 -->
+        <!-- js 서브 툴 | act-on: 생성  -->
+        <div class="sub-box sub-eraser-box act-on">
+          <!-- #지우개 크기 -->
+          <ul class="sub-list-group sub-list-group-size">
+            <!-- js 서브 툴 리스트 | act-on: 생성 / act-active: 활성화 -->
+            <li class="sub-list act-on">
+              <button class="btn-eraser-size">
+                <i class="ico i-eraser-size i-eraser-size-1">크기-스몰</i>
+              </button>
+            </li>
+            <li class="sub-list act-on act-active">
+              <button class="btn-eraser-size">
+                <i class="ico i-eraser-size i-eraser-size-2">크기-미디움</i>
+              </button>
+            </li>
+            <li class="sub-list act-on">
+              <button class="btn-eraser-size">
+                <i class="ico i-eraser-size i-eraser-size-3">크기-라지</i>
+              </button>
+            </li>
+          </ul>
+          <!-- #지우개 전체 지우기 -->
+          <ul class="sub-list-group sub-list-group-all">
+            <li class="sub-list act-on act-active">
+              <button class="btn-eraser-all">
+                전체 지우기
+              </button>
+            </li>
+          </ul>
+        </div>
+        <!-- //##서브 툴 - 지우개 -->
+
+      </div>
+    </header>
+    <!-- //###스킨 - 상단 -->
+
+
+    <!-- ###스킨 - 사이드 -->
+    <aside class="skin-side">
+      <div class="skin-side-wrap">
+        <!-- ##사이드 - 메인 -->
+        <div class="info-main">
+          <!-- ##사이드 - 캐릭터 -->
+          <div class="side-character">
+            <i class="ico i-side-character-1">학습한 내용을 완벽한 나의 지식세포로 만들어 보자!</i>
+          </div>
+          <!-- //##사이드 - 캐릭터 -->
+        </div>
+        <!-- //##사이드 - 메인 -->
+      </div>
+    </aside>
+    <!-- //###스킨 - 사이드 -->
+
+
+    <!-- ###스킨 - 메인 -->
+    <main class="skin-main">
+      <!-- js 메인 배경 | bg-paper-empty: 디폴트 / bg-paper-line1: 라인1 / bg-paper-line2: 라인2 / bg-paper-line3: 라인3 / bg-paper-grid1: 그리드1 / bg-paper-grid2: 그리드2 / bg-paper-grid3: 그리드3 -->
+      <div class="main-content">
+        <div class="note-drawing-box">
+          <!-- <canvas id="canvas-drawing" width="965" height="547" style="background: red; opacity: 0.2"></canvas> -->
+        </div>
+      </div>
+    </main>
+    <!-- //###스킨 - 메인 -->
+
+
+
+    <!-- ###스킨 - 하단 -->
+    <!-- 참고: 내공타임 말공 하단 소스  -->
+    <footer class="skin-footer">
+      <!-- ##하단 - 녹음 -->
+      <div class="footer-recorder">
+
+        <!-- #녹음 - 말하기 -->
+        <div class="recorder-speak">
+
+          <!-- js 말하기 - 상태 | act-on: 생성 -->
+          <div class="speak-state act-on">
+            <!-- js 녹음 버튼 | btn-state-mic: 녹음 / btn-state-recording: 녹음 중 / btn-state-retry: 재녹음 -->
+            <!-- js 녹음 버튼 | disabled: 비활성화 -->
+            <button type="button" class="btn-state btn-state-mic">
+              말하기 - 상태
+              <!-- js 프로그레스바 3 | btn-state-recording: 녹음 중에만 노출 중 -->
+              <!-- <div class="state-circle">
+                <canvas class="canvas-circle" id="canvas" width="180" height="180"></canvas>
+              </div> -->
+            </button>
+          </div>
+
+          <!-- js 말하기 - 시간 | act-on: 생성 -->
+          <div class="speak-running act-on">
+            <p class="running-time-now">
+              <span class="txt-num">00</span>
+              <span class="txt-num">:</span>
+              <span class="txt-num">00</span>
+            </p>
+            <p class="running-time-max">
+              <span class="txt-label">최대</span>
+              <span class="txt-num">05</span>
+              <span class="txt-num">:</span>
+              <span class="txt-num">00</span>
+            </p>
+          </div>
+
+        </div>
+        <!-- //#녹음 - 말하기 -->
+
+        <!-- #녹음 - 듣기 -->
+        <div class="recorder-listen">
+
+          <!-- js 듣기 - 상태 | act-on: 생성 -->
+          <div class="listen-state act-on">
+            <!-- js 버튼 | btn-state-play: 재생  / btn-state-pause: 일시 정지 -->
+            <!-- js 버튼 | disabled: 재생 비활성화 속성값 -->
+            <button type="button" class="btn-state btn-state-play">듣기 - 상태</button>
+          </div>
+
+          <!-- js 듣기 - 시간 | act-on: 생성 -->
+          <div class="listen-running act-on">
+            <!-- @재생 시간 -->
+            <!-- js 시간 텍스트 색상 | act-abled: 활성화 / act-disabled: 비활성화 -->
+            <div class="running-time current-time">
+              <span class="txt-num">00</span>
+              <span class="txt-num">:</span>
+              <span class="txt-num">00</span>
+            </div>
+            <!-- @전체 시간 -->
+            <div class="running-time total-time">
+              <span class="txt-num">15</span>
+              <span class="txt-num">:</span>
+              <span class="txt-num">00</span>
+            </div>
+          </div>
+
+          <!-- js 듣기 - 타임 라인 | act-on: 생성 -->
+          <div class="listen-progress act-on">
+            <div class="progress-bar">
+              <!-- js 듣기 - 타임 라인 바 | style="width" 값으로 위치 제어 -->
+              <span class="bar-timeline" style="width: 40%">
+                <i class="bar-handle">핸들</i>
+              </span>
+            </div>
+          </div>
+
+        </div>
+        <!-- //#녹음 - 듣기 -->
+
+      </div>
+      <!-- //##하단 - 녹음 -->
+
+      <!-- //##하단 - 버튼 | act-on: 생성 -->
+      <div class="footer-btn act-on">
+        <!-- js 버튼 | disabled: 비활성화 -->
+        <button class="btn-done" disabled>
+          <span class="txt">학습 완료</span>
+        </button>
+      </div>
+      <!-- //## 하단 - 버튼 -->
+
+    </footer>
+    <!-- //###스킨 - 하단 -->
+
+  </div>
+  <!-- //####study-make: 학습하기-->
+</div>
+<!-- //#####mathematical-cells: 수학의 세포들 -->
+<script>
+// js 녹음중 | 프로그레스바 2
+var canvas = document.getElementById('canvas');
+var colors = ['#d0d0f1 ', '#d0d0f1  ', '#fff'];
+var circleProgressBar = new CircleProgressBar(canvas, {colors: colors, radius: 50, lineWidth: 8, trackLineColor: 'transparent', frameInterval: 5});
+// setValue 수치값으로 조절
+circleProgressBar.setValue(0.8);
+</script>
+</body>
+</html>

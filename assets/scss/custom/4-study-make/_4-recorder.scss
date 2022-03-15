@@ -1,0 +1,366 @@
+// ========================================================================
+// [recorder] | 하단 - 녹음
+// ========================================================================
+.study-make{
+  // 스킨 - 하단
+  .skin-footer{
+    @include bottom-left(0, 0);
+    width: 100%;
+    height: $study-make-footer-h;
+    margin: 0 auto;
+    text-align: center;
+    z-index: 2;
+    // 하단 - 녹음
+    .footer-recorder{
+      @include top-left(0px, 0px);
+      width: 100%;
+      height: 100%;
+      text-align: left;
+    }
+    //---------------------------------------------------------------------------------
+    //---------------------------------------------------------------------------------
+    // 녹음 - 말하기
+    .recorder-speak{
+      display: inline-flex;
+      align-items: center;
+      @include top-left(-19px, 44px);
+      //---------------------------------------------------------------------------------
+      // 말하기 - 제어
+      .speak-state{
+        display: none;
+        position: relative;
+        &.act-on{
+          display: inline-block;
+        }
+        .btn-state{
+          position: relative;
+          display: inline-block;
+          width: 100px;
+          height: 100px;
+          border-radius: 100%;
+          box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+          @extend %ir;
+          background-color: #9294f3;
+          background-image: linear-gradient(to bottom, #aeaff9 0%, #7b7de7 100%);
+          //녹음
+          &.btn-state-mic{
+            &::before{
+              @include top-left(50%, 50%);
+              @include bg-img-size(29px, 42px, $imgSpeakRecorderPath, 'i-btn-speak-mic@2x');
+              margin-top: -21px;
+              margin-left: -14px;
+              content: '';
+            }
+            .state-circular{
+              display: none;
+            }
+          }
+          //녹음 중
+          &.btn-state-recording{
+            &::before{
+              @include top-left(50%, 50%);
+              width: 20px;
+              height: 20px;
+              margin-left: -10px;
+              margin-top: -10px;
+              border-radius: 2px;
+              background-color: #ffffff;
+              content: '';
+              z-index: 4;
+            }
+            &::after{
+              @include top-left(50%, 50%);
+              width: 80px;
+              height: 80px;
+              margin-left: -44px;
+              margin-top: -44px;
+              border-radius:100%;
+              border: 4px solid rgba(255, 255, 255, 0.1);
+              content: '';
+              z-index: 4;
+            }
+          }
+          //재녹음
+          &.btn-state-retry{
+            &::before{
+              @include top-left(20px, 50%);
+              @include bg-img-size(38px, 34px, $imgSpeakRecorderPath, 'i-btn-speak-retry@2x');
+              margin-left: -19px;
+              content: '';
+            }
+            &::after{
+              @include bottom-left(21px, 20px);
+              color: #fff;
+              font-size: 16px;
+              font-weight: $base-extrabold;
+              letter-spacing: -0.05em;
+              text-indent: initial;
+              content: '다시 녹음';
+            }
+            // 비활성화
+            &[disabled]{
+              background: #d6d6fb;
+              box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0);
+            }
+            .state-circular{
+              display: none;
+            }
+          }
+        }
+        .state-circle{
+          display: none;
+        }
+        .btn-state-recording{
+          .state-circle{
+            @include top-left(0, 0);
+            display: block;
+            height: 90px;
+            width: 90px;
+            z-index: 20;
+            .canvas-circle{
+              position: absolute;
+              bottom: -32px;
+              left: -22px;
+              height: 144px;
+              width: 144px;
+            }
+          }
+        }
+        .state-circular{
+          @include top-left(5px, 5px);
+          height: 90px;
+          width: 90px;
+          border-radius: 100%;
+          z-index: 20;
+        }
+
+      }
+      //---------------------------------------------------------------------------------
+      .speak-running{
+        position: relative;
+        display: none;
+        margin-top: 28px;
+        margin-left: 29px;
+        .running-time-now{
+          font-size: 0;
+          .txt-num{
+            display: inline-block;
+            color: #000;
+            font-size: 28px;
+            font-weight: $base-bold;
+            line-height: 1;
+          }
+        }
+        .running-time-max{
+          display: inline-flex;
+          margin-top: 6px;
+          font-size: 0;
+          .txt-label{
+            color: #999999;
+            font-size: 15px;
+            font-weight: $base-bold;
+            margin-right: 5px;
+          }
+          .txt-num{
+            color: #999999;
+            font-size: 15px;
+            font-weight: $base-bold;
+          }
+        }
+        &:after{
+          @include top-right(0, -31px);
+          width: 2px;
+          height: 55px;
+          background-color: #d6d6fb;
+          content: '';
+        }
+        &.act-on{
+          display: inline-flex;
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    }
+    //---------------------------------------------------------------------------------
+    //---------------------------------------------------------------------------------
+    // 녹음 - 듣기
+    .recorder-listen{
+      @include bottom-left(20px, 310px);
+      display: flex;
+      align-items: center;
+      width: calc(100% - 310px);
+      z-index: 3;
+      //---------------------------------------------------------------------------------
+      // 듣기 - 상태
+      .listen-state{
+        display: none;
+        margin-right: 19px;
+        .btn-state{
+          position: relative;
+          width: 55px;
+          height: 55px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          border: 2px solid #9294f3;
+          background-color: #ffffff;
+          border-radius: 50%;
+          box-sizing: border-box;
+          @extend %ir;
+          // 재생
+          &.btn-state-play{
+            &::before{
+              @include top-left(50%, 50%);
+              @include bg-img-size(23px, 27px, $imgSpeakRecorderPath, 'i-player-play@2x');
+              margin-top: -12px;
+              margin-left: -9px;
+              content: ''
+            }
+            // 재생 비활성화
+            &[disabled]{
+              border-color: #d6d6fb;
+              background-color: #e6e6ff;
+              box-shadow: none;
+              &::before{
+                @include top-left(50%, 50%);
+                @include bg-img-size(17px, 22px, $imgSpeakRecorderPath, 'i-player-play-disabled@2x');
+                margin-top: -11px;
+                margin-left: -6px;
+                content: ''
+              }
+            }
+          }
+          // 일시 정지
+          &.btn-state-pause{
+            &::before{
+              @include top-left(50%, 50%);
+              @include bg-img-size(24px, 26px, $imgSpeakRecorderPath, 'i-player-pause@2x');
+              margin-top: -13px;
+              margin-left: -12px;
+              content: ''
+            }
+          }
+        }
+        &.act-on{
+          display: inline-block;
+        }
+      }
+      //---------------------------------------------------------------------------------
+      // 듣기 - 타임 라인
+      .listen-progress{
+        @include top-left(50%, 143px);
+        display: none;
+        width: 540px;
+        height: 20px;
+        margin-top: -10px;
+        .progress-bar{
+          position: relative;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.1);
+          border-radius: 10px;
+          .bar-timeline{
+            @include top-left(0, 0);
+            height: 100%;
+            border-radius: 10px;
+            font-size: 0;
+            background-color: #9776f2;
+            background-image: linear-gradient(to right, #8284f0 0%, #b58dff 100%);
+            .bar-handle{
+              @include top-right(50%, -18px);
+              width: 36px;
+              height: 36px;
+              margin-top: -18px;
+              border: 10px solid #fff;
+              border-radius: 100%;
+              background-color: #9294f3;
+              box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
+              box-sizing: border-box;
+              cursor: pointer;
+            }
+          }
+        }
+        // act-on: 생성
+        &.act-on{
+          display: inline-block;
+        }
+      }
+      //---------------------------------------------------------------------------------
+      // 듣기 - 시간
+      .listen-running{
+        display: none;
+        .running-time{
+          font-size: 0;
+          &.total-time{
+            @include top-right(50%, 220px);
+            margin-top: -10px;
+          }
+          .txt-num{
+            font-size: 15px;
+            font-weight: $base-bold;
+            color: #000;
+          }
+          // 활성화
+          &.act-abled{
+            .txt-num{
+              color: #000;
+            }
+          }
+          // 비활성화
+          &.act-disabled{
+            .txt-num{
+              color: #999;
+            }
+          }
+          &.running-time-now{
+            margin-right: 28px;
+          }
+
+          &.running-time-max{
+            margin-left: 28px;
+          }
+        }
+        &.act-on{
+          display: inline-block;
+        }
+      }
+      //---------------------------------------------------------------------------------
+    }
+    //---------------------------------------------------------------------------------
+    //---------------------------------------------------------------------------------
+    // 하단 - 저장
+    .footer-btn{
+      display: none;
+      @include bottom-right(25px, 30px);
+      z-index: 3;
+      .btn-done{
+        position: relative;
+        display: inline-block;
+        height: 45px;
+        line-height: 42px;
+        padding: 0 20px 0 52px;
+        border-radius: 22px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        background-color: #20cac2;
+        .txt{
+          font-size: 20px;
+          font-weight: $base-extrabold;
+          color: #fff;
+        }
+        &::before{
+          @include top-left(50%, 20px);
+          @include bg-img-size(22px, 24px, $imgSpeakRecorderPath, 'i-btn-flag@2x');
+          margin-top: -12px;
+          content: '';
+        }
+        &[disabled]{
+          background-color: #d6d6fb;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0);
+        }
+      }
+      &.act-on{
+        display: inline-block;
+      }
+    }
+    //---------------------------------------------------------------------------------
+    //---------------------------------------------------------------------------------
+  }
+}

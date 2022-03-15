@@ -1,0 +1,19 @@
+// ========================================================================
+// [variable] | 변수
+// ========================================================================
+// 높이값
+$header-h2: 70px;
+$skin-main-h2: calc(100% - $header-h2);
+
+$header-h3: 60px;
+$skin-main-h3: calc(100% - $header-h3);
+
+$player-control-h: 95px;
+$player-view-h: calc(100% - $player-control-h);
+
+// 이미지 경로
+$imgCommonPath: "../../../images/0-common";
+
+// 컬러값
+$primary-color: #9294f3;
+$secondary-color: #11bdb5;

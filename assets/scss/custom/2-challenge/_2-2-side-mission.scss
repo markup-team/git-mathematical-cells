@@ -1,0 +1,472 @@
+// ========================================================================
+// [side-mission] | 챌린지 메인 - 사이드
+// ========================================================================
+.challenge-main{
+  // ###사이드 팝업 - 홈런미션 진행현황
+  .skin-side-mission{
+    position: absolute;
+    top: $header-h2;
+    right: 0;
+    &.act-hide{
+      right: -410px;
+      visibility: hidden;
+      animation-name: motion-side-hide;
+      animation-delay: 0;
+      animation-duration: 0.8s;
+      animation-iteration-count: 1;
+      animation-timing-function: ease;
+      animation-fill-mode: forwards;
+      transform-origin: top;
+      .mission-con-box{
+        box-shadow: none;
+      }
+    }
+    &.act-show{
+      right: 0;
+      visibility: hidden;
+      animation-name: motion-side-show;
+      animation-delay: 0;
+      animation-duration: 0.8s;
+      animation-iteration-count: 1;
+      animation-timing-function: ease;
+      animation-fill-mode: forwards;
+      transform-origin: top;
+      .mission-btn-box{
+        .btn-mission{
+          &::before{
+            transform: rotate(-180deg);
+          }
+        }
+      }
+    }
+  }
+  //---------------------------------------------------------------------------------
+  // 홈런미션 진행현황 버튼
+  .mission-btn-box{
+    @include top-left(50%, -30px);
+    margin-top: -40px;
+    .btn-mission{
+      width: 30px;
+      height: 80px;
+      box-shadow: 0 4px 14px rgba(39, 37, 37, 0.2);
+      border-radius: 25px 0 0 25px;
+      background-color: $primary-color;
+      @extend %ir;
+      &::before{
+        @include top-left(50%, 50%);
+        @include bg-img-size(9px, 14px, $imgChallengePath, 'i-btn-arrow@2x');
+        margin-top: -7px;
+        margin-left: -4px;
+        content: ''
+      }
+    }
+  }
+  //---------------------------------------------------------------------------------
+  // 홈런미션 진행현황 팝업
+  .mission-con-box{
+    position: relative;
+    display: block;
+    width: 410px;
+    height: 602px;
+    box-shadow: 0 0 20px rgba(39, 37, 37, 0.1);
+    border-radius: 60px 0 0 60px;
+    background-color: #ffffff;
+    //---------------------------------------------------------------------------------
+    .mission-top{
+      height: 120px;
+      border-radius: 60px 0 0 60px;
+      background-color: #f2f2fe;
+      //---------------------------------------------------------------------------------
+      // @팀 이미지
+      .team-img{
+        @include top-left(15px, 15px);
+      }
+      //---------------------------------------------------------------------------------
+      // @팀 정보
+      .team-info{
+        position: relative;
+        margin-left: 120px;
+        padding-top: 25px;
+      }
+      .team-info-txt{
+        font-size: 0;
+        .t-title{
+          position: relative;
+          display: inline-block;
+          height: 27px;
+          line-height: 27px;
+          padding: 0 7px;
+          font-weight: $base-extrabold;
+          font-size: 15px;
+          color: $primary-color;
+          text-align: center;
+          letter-spacing: -0.07px;
+          &::before{
+            @include top-left(0, 0);
+            width: 100%;
+            height: 100%;
+            border-radius: 6px;
+            border: 2px solid $primary-color;
+            opacity: 0.5;
+            box-sizing: border-box;
+            content: ''
+          }
+        }
+        .t-name{
+          width: 210px;
+          margin-left: 4px;
+          font-weight: $base-extrabold;
+          font-size: 20px;
+          color: #222;
+          letter-spacing: -1.5px;
+          @extend %ellipsis;
+        }
+      }
+      .team-info-figure{
+        .team-number{
+          margin-top: 10px;
+          font-size: 0;
+          .t-present,
+          .t-all{
+            display: inline-block;
+            font-weight: $base-extrabold;
+            font-size: 15px;
+            color: #444;
+            text-align: center;
+            letter-spacing: -1.1px;
+          }
+          .t-all{
+            position: relative;
+            margin-left: 6px;
+            padding-left: 6px;
+            font-weight: $base-normal;
+            color: #888;
+            &::before{
+              @include top-left(0, 0);
+              content: '/'
+            }
+          }
+        }
+        .team-graph{
+          margin-top: 5px;
+          .graph-bar{
+            position: relative;
+            width: 150px;
+            height: 15px;
+            &::before{
+              display: block;
+              width: 100%;
+              height: 100%;
+              border-radius: 7px;
+              background-color: #000000;
+              opacity: 0.1;
+              content: ''
+            }
+            .current-bar{
+              @include top-left(0, 0);
+              width: 100%;
+              height: 100%;
+              border-radius: 7px;
+              background-color: #9776f2;
+              background-image: linear-gradient(to right, #8284f0 0%, #b58dff 100%);
+              @extend %ir;
+            }
+          }
+        }
+      }
+      .team-info-percent{
+        @include top-right(56px, 20px);
+        font-weight: $base-extrabold;
+        font-size: 40px;
+        color: #8362e0;
+        letter-spacing: -3px;
+      }
+    }
+    //---------------------------------------------------------------------------------
+    .mission-middle{
+      padding: 10px 15px 10px 25px;
+      .title-ranking{
+        position: relative;
+        padding-left: 22px;
+        .txt{
+          @include bg-img-size(37px, 21px, $imgChallengePath, 'pop-mission-title-ranking@2x');
+          @extend %ir;
+          // font-weight: $base-extrabold;
+          // font-size: 22px;
+          // color: #222;
+          // letter-spacing: -1.6px;
+        }
+        &::before{
+          @include top-left(50%, 0);
+          margin-top: -10px;
+          @include bg-img-size(16px, 25px, $imgChallengePath, 'pop-mission-i-ranking@2x');
+          content: '';
+        }
+      }
+      .list-ranking-grp{
+        position: relative;
+        margin-top: 3px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        &::before{
+          @include top-left(0, 0);
+          display: block;
+          width: calc(100% - 10px);
+          height: 2px;
+          border-radius: 2px;
+          background-color: $primary-color;
+          content: ''
+        }
+        &::after{
+          @include bottom-left(0, 0);
+          display: block;
+          width: calc(100% - 10px);
+          height: 2px;
+          border-radius: 2px;
+          background-color: $primary-color;
+          content: ''
+        }
+      }
+      .list-ranking{
+        position: relative;
+        &.list-ranking-mvp{
+          &.act-scroll{
+            .r-list{
+              border-bottom: 1px solid $primary-color;
+            }
+          }
+        }
+        &.list-ranking-scroll{
+          height: 290px;
+          max-height: 290px;
+          overflow-y: auto;
+          &::-webkit-scrollbar {
+            width: 5px;
+          }
+          &::-webkit-scrollbar-thumb {
+            border-radius: 20px;
+            background-color: #a0a0a0;
+          }
+          &::-webkit-scrollbar-track {
+            border-radius: 20px;
+            background-color: #e5e5e5;
+          }
+          &.act-scroll{
+            &::before{
+              @include top-left(0, 0);
+              width: calc(100% - 5px);
+              height: 10px;
+              background-image: url('#{$imgChallengePath}/pop-mission-bg-scroll-repeat@2x.png');
+              background-size: 1px 10px;
+              background-repeat: repeat-x;
+              content: ''
+            }
+            .r-list{
+              &:last-child{
+                border-bottom-color: transparent
+              }
+            }
+          }
+        }
+        .r-list{
+          position: relative;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          align-content: center;
+          justify-content: flex-start;
+          width: calc(100% - 10px);
+          height: 86px;
+          font-size: 0;
+          border-bottom: 1px solid #dfdfdf;
+          // MVP일 때
+          &.r-list-mvp{
+            .ranking-img{
+              border-color: #ffdc00;
+              // 왕관
+              &::before{
+                @include top-left(-14px, 50%);
+                @include bg-img-size(30px, 20px, $imgChallengePath, 'pop-mission-i-mvp@2x');
+                margin-left: -15px;
+                content: ''
+              }
+            }
+          }
+          // ME일 때
+          &.r-list-me{
+            background-color: #f4fdfc;
+            .ranking-num{
+              .num{
+                color: $secondary-color;
+              }
+            }
+            .ranking-img{
+              &::before{
+                @include bottom-left(-6px, 50%);
+                width: 35px;
+                height: 15px;
+                margin-left: -17px;
+                line-height: 15px;
+                border-radius: 7px;
+                background-color: #26c0ca;
+                font-weight: $base-bold;
+                font-size: 12px;
+                color: #fff;
+                letter-spacing: -0.9px;
+                text-align: center;
+                content: 'ME'
+              }
+            }
+            .ranking-graph{
+              .p-percent{
+                color: $secondary-color;
+              }
+              .personal-graph{
+                .graph-bar{
+                  .current-bar{
+                    background-color: $secondary-color;
+                  }
+                }
+              }
+            }
+          }
+        }
+        //---------------------------------------------------------------------------------
+        // @개인 순위
+        .ranking-num{
+          display: inline-block;
+          width: 30px;
+          text-align: left;
+          .num{
+            padding-left: 10px;
+            font-weight: $base-bold;
+            font-size: 19px;
+            color: #222;
+            letter-spacing: -1.4px;
+          }
+        }
+        //---------------------------------------------------------------------------------
+        // @개인 이미지
+        .ranking-img{
+          position: relative;
+          display: inline-block;
+          border: 3px solid transparent;
+          border-radius: 50%;
+          box-sizing: border-box;
+        }
+        // @개인 진행률 - 수치/그래프/퍼센트
+        //---------------------------------------------------------------------------------
+        .ranking-graph{
+          padding-left: 20px;
+          .personal-number{
+            position: relative;
+            margin-top: -3px;
+            font-size: 0;
+            .p-present,
+            .p-all,
+            .p-percent{
+              display: inline-block;
+              font-weight: $base-extrabold;
+              font-size: 15px;
+              color: #444;
+              text-align: center;
+              letter-spacing: -1.1px;
+            }
+            .p-all{
+              position: relative;
+              margin-left: 4px;
+              padding-left: 6px;
+              font-weight: $base-normal;
+              color: #888;
+              &::before{
+                @include top-left(0, 0);
+                content: '/'
+              }
+            }
+            .p-percent{
+              @include top-right(0, 0);
+              color: $primary-color;
+            }
+          }
+          .personal-graph{
+            margin-top: 2px;
+            .graph-bar{
+              position: relative;
+              width: 125px;
+              height: 8px;
+              &::before{
+                display: block;
+                width: 100%;
+                height: 100%;
+                border-radius: 4px;
+                background-color: #000000;
+                opacity: 0.1;
+                content: ''
+              }
+              .current-bar{
+                @include top-left(0, 0);
+                width: 100%;
+                height: 100%;
+                border-radius: 4px;
+                background-color: $primary-color;
+                @extend %ir;
+              }
+            }
+          }
+        }
+        //---------------------------------------------------------------------------------
+        // @개인 이모티콘
+        .ranking-emoji{
+          @include top-right(50%, 0);
+          margin-top: -25px;
+          margin-left: 8px;
+          .emoji-box{
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            margin: 0 5px;
+            &::before{
+              @include top-left(0, 0);
+              width: 100%;
+              height: 100%;
+              background-color: #000000;
+              border-radius: 50%;
+              opacity: 0.05;
+              content: '';
+            }
+            &:last-child{
+              margin-right: 0;
+            }
+          }
+        }
+        //---------------------------------------------------------------------------------
+      }
+    }
+    //---------------------------------------------------------------------------------
+    .mission-bottom{
+      @include bottom-left(12px, 0);
+      width: 100%;
+      height: 40px;
+      .btn-ranking-top{
+        width: 100%;
+        height: 100%;
+        .txt{
+          position: relative;
+          display: inline-block;
+          padding-left: 23px;
+          font-weight: $base-extrabold;
+          font-size: 16px;
+          color: $primary-color;
+          letter-spacing: -0.8px;
+          &::before{
+            @include top-left(50%, 0);
+            @include bg-img-size(14px, 9px, $imgChallengePath, 'pop-mission-i-arrow-top@2x');
+            margin-top: -3px;
+            content: ''
+          }
+        }
+      }
+    }
+  }
+}

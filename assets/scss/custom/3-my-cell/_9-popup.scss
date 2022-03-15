@@ -1,0 +1,261 @@
+// ========================================================================
+// [popup] | 나의 세포 - 팝업
+// ========================================================================
+.mathematical-cells{
+  // ###팝업 - MY세포
+  .skin-floating-pop{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    &.act-on{
+      display: block;
+    }
+    .skin-pop-wrap{
+      position: relative;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: nowrap;
+      align-items: center;
+      height: 100%;
+    }
+    .pop-box{
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+    }
+    //---------------------------------------------------------------------------------
+    // 생각세포
+    &.skin-cell-pop{
+      .title-pop-main{
+        &::before{
+          @include top-left(50%, 16px);
+          @include bg-img-size(38px, 49px, $imgMYPopPath, 'top-title-think-cell@2x');
+          margin-top: -22px;
+          @extend %ir;
+          content: '';
+        }
+      }
+      .skin-pop-main{
+        background-color: #f8f8f8;
+      }
+    }
+    &.skin-quesiton-pop{
+      .title-pop-main{
+        &::before{
+          @include top-left(50%, 16px);
+          @include bg-img-size(41px, 42px, $imgMYPopPath, 'top-title-question@2x');
+          margin-top: -21px;
+          @extend %ir;
+          content: '';
+        }
+      }
+    }
+    // 상단
+    .skin-pop-top{
+      width: 100%;
+      margin: 0 auto;
+      text-align: center;
+      .header-3{
+        height: $header-h3;
+        line-height: 54px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.12);
+        background-color: #d6d6fb;
+        border: 2px solid #c8c9f9;
+        box-sizing: border-box;
+      }
+      .top-title{
+        position: relative;
+        text-align: left;
+        font-size: 0;
+        .title-pop-main,
+        .title-pop-sub{
+          position: relative;
+          display: inline-block;
+          vertical-align: top;
+        }
+        .title-pop-main{
+          padding-left: 60px;
+          font-size: 27px;
+          color: #222;
+          font-weight: $base-extrabold;
+          letter-spacing: -2px;
+        }
+        .title-pop-sub{
+          position: relative;
+          padding-left: 12px;
+          margin-left: 12px;
+          font-size: 20px;
+          font-weight: $base-bold;
+          color: #444;
+          letter-spacing: -1.5px;
+          &::before{
+            @include top-left(50%, 0);
+            width: 2px;
+            height: 22px;
+            margin-top: -11px;
+            background-color: #c8c9f9;
+            content: '';
+          }
+        }
+      }
+    }
+    // 메인
+    .skin-pop-main{
+      position: relative;
+      height: calc($skin-main-h3 - 10px);
+      padding: 5px;
+      background-color: #fff;
+      .quesiton-box{
+        height: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
+        &::-webkit-scrollbar {
+          width: 10px;
+        }
+        &::-webkit-scrollbar-thumb {
+          border-radius: 20px;
+          background-color: #a0a0a0;
+        }
+        &::-webkit-scrollbar-track {
+          border-radius: 20px;
+          background-color: #e5e5e5;
+        }
+      }
+    }
+  //---------------------------------------------------------------------------------
+  //---------------------------------------------------------------------------------
+  }
+  // 학습안내 박스
+  .player-view-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: $player-view-h;
+    .player-img{
+      display: inline-block;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.12);
+      background-color: #ffffff;
+    }
+  }
+  // 컨트롤 박스
+  .player-control-box{
+    @include bottom-left(0, 0);
+    width: 100%;
+    height:$player-control-h;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.12);
+    background-color: #e6e6ff;
+    border-top: 2px solid #d6d6fb;
+    box-sizing: border-box;
+    z-index: 20;
+    .player-control-wrap{
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
+    //---------------------------------------------------------------------------------
+    // 상태
+    .listen-state{
+      display: none;
+      margin-left: 45px;
+      margin-right: 19px;
+      &.act-on{
+        display: inline-block;
+      }
+      .btn-state{
+        position: relative;
+        width: 55px;
+        height: 55px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border: 2px solid #9294f3;
+        background-color: #ffffff;
+        border-radius: 50%;
+        box-sizing: border-box;
+        @extend %ir;
+        // 재생
+        &.btn-state-play{
+          &::before{
+            @include top-left(50%, 50%);
+            @include bg-img-size(23px, 27px, $imgMYPopPath, 'i-player-play@2x');
+            margin-top: -12px;
+            margin-left: -9px;
+            content: ''
+          }
+        }
+        // 일시 정지
+        &.btn-state-pause{
+          &::before{
+            @include top-left(50%, 50%);
+            @include bg-img-size(24px, 26px, $imgMYPopPath, 'i-player-pause@2x');
+            margin-top: -12px;
+            margin-left: -11px;
+            content: ''
+          }
+        }
+      }
+    }
+    //---------------------------------------------------------------------------------
+    // 타임 라인
+    .listen-progress{
+      @include top-left(50%, 186px);
+      display: none;
+      width: 976px;
+      height: 20px;
+      margin-top: -10px;
+      &.act-on{
+        display: inline-block;
+      }
+      .progress-bar{
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        .bar-timeline{
+          @include top-left(0, 0);
+          height: 100%;
+          border-radius: 10px;
+          font-size: 0;
+          background-color: #9776f2;
+          background-image: linear-gradient(to right, #8284f0 0%, #b58dff 100%);
+          .bar-handle{
+            @include top-right(50%, -18px);
+            width: 36px;
+            height: 36px;
+            margin-top: -18px;
+            border: 10px solid #fff;
+            border-radius: 100%;
+            background-color: #9294f3;
+            box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
+            box-sizing: border-box;
+          }
+        }
+      }
+    }
+    //---------------------------------------------------------------------------------
+    // 시간
+    .listen-running{
+      display: none;
+      &.act-on{
+        display: inline-block;
+      }
+      .running-time{
+        font-size: 0;
+        &.total-time{
+          @include top-right(50%, 48px);
+          margin-top: -10px;
+        }
+        .txt-num{
+          font-size: 15px;
+          font-weight: $base-bold;
+          color: #000;
+        }
+      }
+    }
+    //---------------------------------------------------------------------------------
+  }
+}

@@ -1,0 +1,99 @@
+// ========================================================================
+// [contents] | 컨텐츠
+// ========================================================================
+.study-make{
+  .skin-main{
+    position: relative;
+    height: $study-make-main-h;
+    text-align: center;
+    background-color: #f8f8f8;
+  }
+  //---------------------------------------------------------------------------------
+  .main-side{
+    @include top-left(0, 0);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 157px;
+    height: $study-make-content-h;
+    .info-bubble{
+      display: block;
+      width: 115px;
+      height: calc(100% - 48px);
+      min-height: 77px;
+      padding: 24px 0;
+      border-radius: 20px;
+      background-color: #dbe4ff;
+      &::before{
+        @include bottom-right(0, -27px);
+        @include bg-img-size(21px, 21px, $imgChallengePath, 'i-alarm-new@2x');
+        content: ''
+      }
+    }
+  }
+  //---------------------------------------------------------------------------------
+  .main-content{
+    position: relative;
+    display: inline-block;
+    width: 967px;
+    height: $study-make-content-h;
+    border-left: 1px solid #ebebeb;
+    border-right: 1px solid #ebebeb;
+    background-color: #fff;
+    box-sizing: border-box;
+    &::before{
+      @include top-left(0, 0);
+      width: 100%;
+      height: 100%;
+      background-repeat: repeat;
+      content: '';
+    }
+    // 노트 배경
+    &.bg-paper-line1{
+      &::before{
+        background-image: url("#{$imgWriteContentsPath}/bg-paper-line1@2x.png");
+        background-size: 1px 62px;
+        background-position: 0 -20px;
+      }
+    }
+    &.bg-paper-line2{
+      &::before{
+        background-image: url("#{$imgWriteContentsPath}/bg-paper-line2@2x.png");
+        background-size: 1px 41px;
+        background-position: 0 -5px;
+      }
+    }
+    &.bg-paper-line3{
+      &::before{
+        background-image: url("#{$imgWriteContentsPath}/bg-paper-line3@2x.png");
+        background-size: 1280px 41px;
+        background-position: 0 -5px;
+      }
+    }
+    &.bg-paper-grid1{
+      &::before{
+        background-image: url("#{$imgWriteContentsPath}/bg-paper-grid1@2x.png");
+        background-size: 91px 91px;
+        background-position: 90px 90px;
+      }
+    }
+    &.bg-paper-grid2{
+      &::before{
+        background-image: url("#{$imgWriteContentsPath}/bg-paper-grid2@2x.png");
+        background-size: 71px 71px;
+        background-position: 69px 69px;
+      }
+    }
+    &.bg-paper-grid3{
+      &::before{
+        background-image: url("#{$imgWriteContentsPath}/bg-paper-grid3@2x.png");
+        background-size: 41px 41px;
+        background-position: 40px 40px;
+      }
+    }
+  }
+  .note-drawing-box{
+    position: relative;
+  }
+}
