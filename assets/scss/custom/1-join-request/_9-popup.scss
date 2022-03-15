@@ -1,0 +1,368 @@
+// ========================================================================
+// [popup] | 참여신청 - 팝업
+// ========================================================================
+.join-request{
+  // ###신청 팝업
+  .skin-pop{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    &::before{
+      @include top-left(0, 0);
+      width: 100%;
+      height: 100%;
+      background-color: #000000;
+      opacity: 0.7;
+      content: '';
+    }
+    &.act-on{
+      display: block;
+    }
+    .skin-pop-wrap{
+      position: relative;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: nowrap;
+      align-items: center;
+      height: 100%;
+    }
+    .pop-box{
+      position: relative;
+      width: 1210px;
+      height: 680px;
+      background-color: #fff;
+      border-radius: 20px;
+    }
+    //---------------------------------------------------------------------------------
+    .top-area{
+      @include top-right(20px, 0);
+      width: 100%;
+      text-align: center;
+      .pop-title{
+        font-size: 30px;
+        font-weight: $base-extrabold;
+        color: #9294f3;
+        letter-spacing: -2.25px;
+      }
+    }
+    //---------------------------------------------------------------------------------
+    //---------------------------------------------------------------------------------
+    .content-area{
+      position: relative;
+      height: 507px;
+      margin: 0 15px;
+      margin-top: 83px;
+      border-radius: 25px;
+      background-color: #f2f2fe;
+      //---------------------------------------------------------------------------------
+      // 미션 독려 메시지
+      .message-box{
+        position: relative;
+        padding: 32px 35px 0 240px;
+        // 스크롤 추가
+        .message-box-wrap{
+          height: 127px;
+        }
+        &::before{
+          @include top-left(21px, 50px);
+          @include bg-img-size(151px, 158px, $imgJoinPopPath, 'pop-i-true-giant@2x');
+          content: '';
+        }
+        .m-name{
+          font-size: 28px;
+          font-weight: $base-extrabold;
+          color: #222222;
+          letter-spacing: -2.1px;
+        }
+        .m-txt{
+          display: block;
+          margin-top: 22px;
+          line-height: 1.6em;
+          font-size: 22px;
+          font-weight: $base-bold;
+          color: #444444;
+          letter-spacing: -1.6px;
+          .t-highlihgt{
+            vertical-align: baseline;
+            color: #8362e0;
+            font-weight: $base-extrabold;
+          }
+        }
+      }
+      //---------------------------------------------------------------------------------
+      // 개념/개인미션/성공보상
+      .section-box-grp{
+        @include top-left(200px, 0);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: flex-start;
+        width: 100%;
+        .section-box{
+          position: relative;
+          width: 350px;
+          height: 277px;
+          border-radius: 15px;
+          background-color: #ffffff;
+        }
+        .s-title{
+          @include top-left(0, 0);
+          width: 100%;
+          height: 50px;
+          line-height: 50px;
+          border-radius: 15px 15px 0 0;
+          background-color: #e6e6ff;
+          font-weight: $base-extrabold;
+          font-size: 22px;
+          color: #9294f3;
+          text-align: center;
+          letter-spacing: -1.6px;
+        }
+        .s-content{
+          position: relative;
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          text-align: center;
+          justify-content: center;
+          height: calc(100% - 50px);
+          margin-top: 50px;
+          text-align: center;
+        }
+        //---------------------------------------------------------------------------------
+        // 개념
+        .notion-box{
+          .s-content{
+            width: calc(100% - 20px);
+            padding: 0 5px 0 15px;
+          }
+          .s-content-wrap{
+            max-height: 167px;
+          }
+          .notion-goal{
+            font-weight: $base-bold;
+            font-size: 18px;
+            color: #444;
+            letter-spacing: -1.15px;
+          }
+          .notion-represent{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 10px;
+            font-size: 0;
+            .represent-list{
+              height: 37px;
+              line-height: 34px;
+              margin: 0 4px 5px 4px;
+              padding: 0 10px;
+              border-radius: 6px;
+              border: 2px solid #c8c9f9;
+              box-sizing: border-box;
+              color: #9294f3;
+              font-size: 18px;
+              font-weight: $base-bold;
+              letter-spacing: -0.9px;
+            }
+          }
+        }
+        //---------------------------------------------------------------------------------
+        // 개인미션
+        .mission-box{
+          .s-content{
+            width: calc(100% - 10px);
+            height: 200px;
+            padding: 0 5px;
+          }
+          .s-content-wrap{
+            max-height: 137px;
+            &::before{
+              position: relative;
+              @include bg-img-size(60px, 60px, $imgJoinPopPath, 'pop-i-personal-mission@2x');
+              content: ''
+            }
+          }
+          .mission-txt{
+            position: relative;
+            margin-top: 12px;
+            line-height: 1.23em;
+            font-weight: $base-extrabold;
+            font-size: 24px;
+            color: #444;
+            letter-spacing: -1.8px;
+            .t-highlihgt{
+              color: #8362e0;
+              vertical-align: baseline;
+            }
+          }
+          .mission-info{
+            @include bottom-left(18px, 0);
+            width: 100%;
+            text-align: center;
+          }
+        }
+        //---------------------------------------------------------------------------------
+        // 성공보상
+        .reward-box{
+          .s-content{
+            width: calc(100% - 10px);
+            padding: 0 5px;
+          }
+          .s-content-wrap{
+            height: 167px;
+          }
+          .reward-item-grp{
+            display: flex;
+            width: 100%;
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-start;
+          }
+          .reward-item{
+            position: relative;
+            width: 50%;
+            text-align: center;
+            vertical-align: top;
+            &::before{
+              @include top-left(50%, -4px);
+              @include bg-img-size(1px, 167px, $imgJoinPopPath, 'pop-reward-bg-line@2x');
+              margin-top: -83px;
+              content: ''
+            }
+            &:first-child{
+              &::before{
+                display: none;
+              }
+            }
+          }
+          .txt{
+            display: block;
+            margin-top: 16px;
+            line-height: 1.3em;
+            font-weight: $base-bold;
+            font-size: 18px;
+            color: #444;
+            letter-spacing: -1.35px;
+          }
+          .img{
+            vertical-align: top;
+          }
+          // 세포
+          .cells{
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background-size: 100px 100px;
+            .c-txt{
+              display: block;
+              margin-top: 20px;
+              line-height: 1.2em;
+              font-weight: $base-extrabold;
+              font-size: 16px;
+              color: #fff;
+              letter-spacing: -1.2px;
+            }
+            .c-cell{
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              .i-cell{
+                position: absolute;
+                display: inline-block;
+                width: 13px;
+                height: 13px;
+                border: 2px solid rgba(255, 255, 255, 0.85);
+                background-color: #57d0eb;
+                border-radius: 50%;
+                box-sizing: border-box;
+                @extend %ir;
+                &:nth-child(1){
+                  top: 58px;
+                  left: 18px;
+                }
+                &:nth-child(2){
+                  top: 68px;
+                  left: 29px;
+                }
+                &:nth-child(3){
+                  top: 72px;
+                  left: 44px;
+                }
+                &:nth-child(4){
+                  top: 68px;
+                  left: 59px;
+                }
+                &:nth-child(5){
+                  top: 58px;
+                  left: 71px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    //---------------------------------------------------------------------------------
+    //---------------------------------------------------------------------------------
+    .btn-bottom-area{
+      position: relative;
+      display: block;
+      margin-top: 20px;
+      font-size: 0;
+      text-align: center;
+      .btn-challenge{
+        display: inline-block;
+        height: 50px;
+        line-height: 1;
+        padding: 0 42px;
+        margin: 0 5px;
+        border-radius: 25px;
+        font-size: 24px;
+        font-weight: $base-bold;
+        color: #ffffff;
+        &.btn-request{
+          padding: 0 30px 0 50px;
+          background-color: #20cac2;
+          .txt{
+            position: relative;
+            vertical-align: top;
+            &::before{
+              @include top-left(50%, -27px);
+              @include bg-img-size(19px, 15px, $imgJoinPopPath, 'pop-i-btn-request@2x');
+              margin-top: -7px;
+              content: '';
+            }
+          }
+        }
+        &.btn-cancle{
+          background-color: #aeaeae;
+          letter-spacing: -1.8px;
+        }
+      }
+    }
+  }
+  //---------------------------------------------------------------------------------
+  //---------------------------------------------------------------------------------
+  .box-scrollbar{
+    width: calc(100% - 5px);
+    padding-right: 5px;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 20px;
+      background-color: #a0a0a0 ;
+    }
+    &::-webkit-scrollbar-track {
+      border-radius: 20px;
+      background-color: #e5e5e5;
+    }
+  }
+}

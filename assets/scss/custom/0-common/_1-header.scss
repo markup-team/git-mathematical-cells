@@ -1,0 +1,138 @@
+// ========================================================================
+// [header] | 상단
+// ========================================================================
+.mathematical-cells{
+  // 상단 타이틀
+  // 참여신청 타이틀
+  .join-request{
+    .top-title{
+      @include top-left(40px, 0);
+      width: 100%;
+      text-align: center;
+      .title-math-cells{
+        @include bg-img-size(358px, 75px, $imgCommonPath, 'title-mathcells-1@2x');
+        @extend %ir;
+      }
+      .title-info{
+        display: block;
+        margin-top: -1px;
+        font-size: 18px;
+        font-weight: $base-extrabold;
+        color: #5438a3;
+        letter-spacing: -0.07em;
+      }
+    }
+  }
+  // 참여신청 타이틀
+  .challenge-main{
+    .top-title{
+      position: relative;
+      text-align: left;
+      .title-math-cells{
+        @include top-left(14px, 16px);
+        @include bg-img-size(216px, 42px, $imgCommonPath, 'title-mathcells-2@2x');
+        @extend %ir;
+      }
+      .title-sub{
+        @include top-left(18px, 246px);
+        display: inline-block;
+        padding-left: 17px;
+        font-size: 27px;
+        font-weight: $base-extrabold;
+        color: #fff;
+        letter-spacing: -2.02px;
+        &::before{
+          @include top-left(50%, 0);
+          display: inline-block;
+          width: 2px;
+          height: 26px;
+          margin-top: -13px;
+          background-color: #ffffff;
+          opacity: 0.3;
+          content: '';
+        }
+      }
+    }
+  }
+  //---------------------------------------------------------------------------------
+  //---------------------------------------------------------------------------------
+  // 상단
+  .skin-top{
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    .header-2{
+      height: $header-h2;
+      background-color: #9776f2;
+      background-image: linear-gradient(to right, #8a71f3 0%, #b87cf6 100%);
+      box-sizing: border-box;
+    }
+    //---------------------------------------------------------------------------------
+    //---------------------------------------------------------------------------------
+    // MY 세포/튜토리얼
+    .btn-top-box{
+      position: relative;
+      height: 36px;
+      line-height: 36px;
+      font-size: 18px;
+      font-weight: $base-extrabold;
+      .txt{
+        position: relative;
+        vertical-align: baseline;
+      }
+    }
+    // MY 세포
+    .top-my-cell{
+      @include top-right(17px, 206px);
+      .btn-my-cell{
+        padding: 0 20px 0 44px;
+        color: #8362e0;
+        &::before{
+          @include top-left(0, 0);
+          width: 100%;
+          height: 100%;
+          border-radius: 36px;
+          background-color: #fff;
+          content: '';
+        }
+        &::after{
+          @include top-left(7px, 21px);
+          @include bg-img-size(17px, 21px, $imgCommonPath, 'i-top-my@2x');
+          content: '';
+        }
+        .i-my-new{
+          @include top-right(7px, 10px);
+          display: block;
+          width: 6px;
+          height: 6px;
+          background-color: #fa5080;
+          border-radius: 50%;
+          @extend %ir;
+        }
+      }
+    }
+    // 튜토리얼
+    .top-tutorial{
+      @include top-right(17px, 74px);
+      .btn-tutorial{
+        padding: 0 14px 0 37px;
+        color: #fff;
+        &::before{
+          @include top-left(0, 0);
+          width: 100%;
+          height: 100%;
+          border-radius: 36px;
+          background-color: #000000;
+          opacity: 0.2;
+          content: '';
+        }
+        &::after{
+          @include top-left(7px, 7px);
+          @include bg-img-size(22px, 22px, $imgCommonPath, 'i-top-info@2x');
+          content: '';
+        }
+      }
+    }
+    //---------------------------------------------------------------------------------
+  }
+}

@@ -1,0 +1,146 @@
+// ========================================================================
+// [popup] | 팝업
+// ========================================================================
+.study-make{
+  .ico{
+    &.i-message-good{
+      @include bg-img-size(89px, 21px, $imgStudyPopPath, 'i-bubble-txt-1@2x');
+    }
+    &.i-itrue{
+      @include bg-img-size(139px, 158px, $imgStudyPopPath, 'i-bubble-itrue@2x');
+    }
+  }
+  // ###신청 팝업
+  .skin-pop{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    &::before{
+      @include top-left(0, 0);
+      width: 100%;
+      height: 100%;
+      background-color: #000000;
+      opacity: 0.7;
+      content: '';
+    }
+    &.act-on{
+      display: block;
+    }
+    .skin-pop-wrap{
+      position: relative;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: nowrap;
+      align-items: center;
+      height: 100%;
+    }
+    .pop-box{
+      position: relative;
+      width: 1210px;
+      height: 680px;
+      background-color: #fff;
+      border-radius: 20px;
+    }
+    //---------------------------------------------------------------------------------
+    .top-area{
+      @include top-right(20px, 0);
+      width: 100%;
+      text-align: center;
+      .pop-title{
+        font-size: 30px;
+        font-weight: $base-extrabold;
+        color: #9294f3;
+        letter-spacing: -2.25px;
+      }
+    }
+    //---------------------------------------------------------------------------------
+    .notice-top-area{
+      @include top-right(12px, 71px);
+    }
+    //---------------------------------------------------------------------------------
+    .content-area{
+      position: relative;
+      height: 512px;
+      margin: 0 15px;
+      margin-top: 83px;
+      border-radius: 25px;
+      background-color: #f2f2fe;
+      overflow: hidden;
+      // #학습 완료 영역
+      .complete-box{
+        position: relative;
+        @include bg-img-size(1180px, 512px, $imgStudyPopPath, 'bg-main@2x');
+        .area-message{
+          @include bottom-left(20px, 66px);
+          display: flex;
+          width: 205px;
+          flex-direction: column;
+          align-items: center;
+        }
+        .bubble-box{
+          position: relative;
+          display: inline-block;
+          min-width: 210px;
+          padding: 10px;
+          border-radius: 30px;
+          border: 1px solid #cecef1;
+          background-color: #d6d6fb;
+          box-sizing: border-box;
+          text-align: center;
+          &::before{
+            @include bottom-left(-15px, 120px);
+            @include bg-img-size(16px, 16px, $imgStudyPopPath, 'i-bubble-tail@2x');
+            content: ''
+          }
+          .bubble-message{
+            position: relative;
+            display: inline-block;
+            padding: 16px 0 20px 0;
+            line-height: 1.2em;
+            color: #9294f3;
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: -0.9px;
+          }
+          .bubble-txt{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100px;
+            border-radius: 23px;
+            background-color: #ffffff;
+            .b-txt{
+              display: block;
+              line-height: 1.2em;
+              font-size: 20px;
+              font-weight: $base-extrabold;
+              color: #222;
+              letter-spacing: -1px;
+              &.b-txt-2{
+                color: #8362e0;
+              }
+            }
+          }
+        }
+        .character-box{
+          margin-top: 9px;
+        }
+      }
+      // #지식맵 영역
+      .area-knowledge-maps{
+        @include top-left(0, 315px);
+        display: flex;
+        align-items: center;
+        height: 100%;
+      }
+    }
+    //---------------------------------------------------------------------------------
+  }
+  //---------------------------------------------------------------------------------
+  //---------------------------------------------------------------------------------
+}

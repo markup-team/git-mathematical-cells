@@ -1,0 +1,32 @@
+// ========================================================================
+// [thumb] | 공통 리스트 썸네일
+// ========================================================================
+// 보더랑 라운드값은 개별로 처리
+.share-section-list{
+  .img-area{
+    figure{
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      background-color: #e4e4e4;
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+    // 업데이트중
+    &.thumb-update{
+      figure{
+        background-image: url(#{$imgthumbPath}/img-thumb-update@2x.png);
+        background-size: 215px 135px;
+      }
+    }
+    // 디폴트
+    &.thumb-default{
+      figure{
+        background-image: url(#{$imgthumbPath}/img-thumb-default@2x.png);
+        background-size: 360px 203px;
+      }
+    }
+  }
+}
